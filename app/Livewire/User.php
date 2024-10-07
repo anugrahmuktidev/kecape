@@ -36,20 +36,35 @@ class User extends Component
 
     public function store()
     {
-        $validatedData = $this->validate();
-
-        // Menggunakan updateOrCreate untuk menangani create dan update
-        UserModel::updateOrCreate(['id' => $this->selected_id], [
-            'name' => $validatedData['name'],
-            'email' => $validatedData['email'],
-            'no_hp' => $validatedData['no_hp'],
-            'password' => $validatedData['password'] ? Hash::make($validatedData['password']) : null,
-            'role' => 'admin',
-            'is_first_login' => false,
+        $validatedData = $this->validate([
+            'name' => 'required|string',
+            'email' => 'required|email',
+            'no_hp' => 'required',
         ]);
 
+        if ($this->selected_id) {
+            // Update existing user, don't validate password
+            $user = UserModel::findOrFail($this->selected_id);
+            $user->update([
+                'name' => $validatedData['name'],
+                'email' => $validatedData['email'],
+                'no_hp' => $validatedData['no_hp'],
+            ]);
+        } else {
+            // Create new user, validate and hash password
+            $validatedData['password'] = $this->validate(['password' => 'required'])['password'];
+            $user = UserModel::create([
+                'name' => $validatedData['name'],
+                'email' => $validatedData['email'],
+                'no_hp' => $validatedData['no_hp'],
+                'password' => Hash::make($validatedData['password']),
+                'role' => 'admin',
+                'is_first_login' => false,
+            ]);
+        }
+
         // Flash message setelah operasi
-        session()->flash('message', $this->selected_id ? 'User updated successfully.' : 'User created successfully.');
+        session()->flash('message', $this->selected_id ? 'User  updated successfully.' : 'User  created successfully.');
 
         $this->closeModal(); // Menutup modal setelah operasi
         $this->resetInputFields();
