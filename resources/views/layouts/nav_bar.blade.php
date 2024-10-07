@@ -91,7 +91,7 @@
                         </ul>
                     </div>
                 </li>
-                @if (Auth::user()->email == 'anugrahmukti5@gmail.com')
+                @if (Auth::user()->email == 'admin@gmail.com')
                     <li class="nav-item">
                         <a class="nav-link menu-link" href="#sidebarDataUser" data-bs-toggle="collapse" role="button"
                             aria-expanded="false" aria-controls="sidebarDataUser">
