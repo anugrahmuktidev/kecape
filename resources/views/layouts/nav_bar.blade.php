@@ -72,17 +72,17 @@
                     <div class="collapse menu-dropdown" id="sidebarDataSkrining">
                         <ul class="nav nav-sm flex-column">
                             <li class="nav-item">
-                                <a href="{{ route('admin.data.pretest') }}" class="nav-link" data-key="t-soal">
+                                <a href="{{ route('admin.data.pretest') }}" class="nav-link" data-key="t-pretest">
                                     Pretest
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('admin.data.posttest') }}" class="nav-link" data-key="t-soal">
+                                <a href="{{ route('admin.data.posttest') }}" class="nav-link" data-key="t-posttest">
                                     Post Test
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('admin.data.skrining') }}" class="nav-link" data-key="t-soal">
+                                <a href="{{ route('admin.data.skrining') }}" class="nav-link" data-key="t-skrining">
                                     Skrining
                                 </a>
                             </li>
@@ -91,6 +91,26 @@
                         </ul>
                     </div>
                 </li>
+                @if (Auth::user()->email == 'anugrahmukti5@gmail.com')
+                    <li class="nav-item">
+                        <a class="nav-link menu-link" href="#sidebarDataUser" data-bs-toggle="collapse" role="button"
+                            aria-expanded="false" aria-controls="sidebarDataUser">
+                            <i class="ri-file-user-line"></i> <span data-key="t-data-master">Data User</span>
+                        </a>
+                        <div class="collapse menu-dropdown" id="sidebarDataUser">
+                            <ul class="nav nav-sm flex-column">
+                                <li class="nav-item">
+                                    <a href="{{ route('admin.users.index') }}" class="nav-link" data-key="t-user">
+                                        Add Admin
+                                    </a>
+                                </li>
+
+
+
+                            </ul>
+                        </div>
+                    </li>
+                @endif
             </ul>
 
         </div>

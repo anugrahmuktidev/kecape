@@ -24,9 +24,6 @@
 
         <button wire:click="create()" class="btn btn-primary mb-3">Tambah Soal</button>
 
-        {{-- @if ($isOpen)
-            @include('admin.soal.modal')
-        @endif --}}
 
         <table class="table table-bordered">
             <thead>

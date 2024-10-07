@@ -10,7 +10,7 @@
                         <p class="text-muted">Masuk ke Sistem.</p>
                     </div>
                     <div class="p-2 mt-3">
-                        <form method="POST" action="{{ route('login') }}">
+                        <form method="POST" action="{{ route('post.login') }}">
                             @csrf
                             <div class="mb-3">
                                 <label for="no_hp" class="form-label">Nomor Hp</label>

@@ -32,7 +32,7 @@ Route::get('/admin-login-unique', [AdminLoginController::class, 'showLoginForm']
 Route::post('/admin-login-unique', [AdminLoginController::class, 'login'])->middleware('guest');
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
-    // Rute admin lainnya
+
 });
 
 
@@ -42,20 +42,18 @@ Route::post('/logout', [App\Http\Controllers\Auth\AuthenticatedSessionController
 
 
 Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login')->middleware('guest');
-Route::post('/login', [LoginController::class, 'login'])->name('login')->middleware('guest');
-
-// Route::get('/register', function () {
-//     return view('auth.register');
-// });
+Route::post('/login', [LoginController::class, 'login'])->name('post.login')->middleware('guest');
 
 
-
-// Route::view('/home', 'home')->name('home')->middleware('auth');
 
 
 Route::get('/soal', function () {
     return view('admin.soal.index');
 })->middleware(['auth', 'admin'])->name('admin.soal.index');
+
+Route::get('/users', function () {
+    return view('admin.users.index');
+})->middleware(['auth', 'admin'])->name('admin.users.index');
 
 Route::get('/jawaban', function () {
     return view('admin.jawaban.index');
@@ -78,14 +76,6 @@ Route::get('/home', function () {
 })->middleware(['auth', 'verified'])->name('home');
 
 
-// Route::middleware(['auth', 'first_login'])->group(function () {
-//     Route::get('/home', [HomeController::class, 'index'])->name('home');
-// });
-
-
-
-
-
 Route::middleware(['auth', 'checkfirstlogin'])->group(function () {
     Route::get('/home', [HomeController::class, 'index'])->name('home');
     Route::get('/home/profil', function () {
@@ -94,10 +84,6 @@ Route::middleware(['auth', 'checkfirstlogin'])->group(function () {
     Route::get('/home/riwayat', [SkriningController::class, 'viewSkriningHistory'])->name('skrining.history');
 
 });
-
-
-
-
 
 
 Route::middleware('auth')->group(function () {
