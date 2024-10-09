@@ -181,19 +181,20 @@
                                                 class="btn btn-warning btn-lg w-100 fs-4 mb-4">Home</a>
                                         @endif
                                     @else
-                                        <a href="{{ route('login') }}"
-                                            class="btn btn-warning btn-lg w-100 fs-4 mb-3">Masuk</a>
                                         @if (Route::has('register'))
                                             <a href="{{ route('register') }}"
                                                 class="btn btn-success btn-lg w-100 fs-4 mb-3">Daftar</a>
                                         @endif
+                                        <a href="{{ route('login') }}"
+                                            class="btn btn-warning btn-lg w-100 fs-4 mb-3">Masuk</a>
+
                                     @endauth
-                                    <a href="" class="btn btn-primary btn-lg w-100 fs-4">Petunjuk Penggunaan</a>
+                                    <a href="{{ asset('petunjuk_kecapi.pdf') }}" target="_blank"
+                                        class="btn btn-primary btn-lg w-100 fs-4">Petunjuk Penggunaan</a>
                                 </div>
                             @endif
                         </div>
                     </div>
-
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="text-center mt-sm-5 mb-4 text-white-50">

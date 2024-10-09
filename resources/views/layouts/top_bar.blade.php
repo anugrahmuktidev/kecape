@@ -48,7 +48,7 @@
                         <!-- item-->
                         <x-dropdown-link data-bs-toggle="modal" data-bs-target="#changePasswordModal"
                             style="cursor: pointer;">
-                            {{ __('Change Password') }}
+                            {{ __('Ganti Password') }}
                         </x-dropdown-link>
                         <div class="mt-3"></div>
                         <form method="POST" action="{{ route('logout') }}">
@@ -71,7 +71,7 @@
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="changePasswordModalLabel">{{ __('Change Password') }}</h5>
+                <h5 class="modal-title" id="changePasswordModalLabel">{{ __('Ganti Password') }}</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -80,16 +80,16 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group">
-                        <label for="current_password">{{ __('Current Password') }}</label>
+                        <label for="current_password">{{ __('Password saat ini') }}</label>
                         <input type="password" id="current_password" class="form-control" name="current_password"
                             required>
                     </div>
                     <div class="form-group">
-                        <label for="password">{{ __('New Password') }}</label>
+                        <label for="password">{{ __('Password Baru') }}</label>
                         <input type="password" id="password" class="form-control" name="password" required>
                     </div>
                     <div class="form-group">
-                        <label for="password_confirmation">{{ __('Confirm New Password') }}</label>
+                        <label for="password_confirmation">{{ __('Konfirmasi Password Baru') }}</label>
                         <input type="password" id="password_confirmation" class="form-control"
                             name="password_confirmation" required>
                     </div>
