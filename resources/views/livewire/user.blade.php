@@ -90,6 +90,19 @@
                                     @enderror
                                 </div>
 
+                                <!-- Password (ditambahkan hanya untuk tambah user) -->
+                                @if (!$selected_id)
+                                    <!-- Hanya tampilkan jika menambah user -->
+                                    <div class="form-group mb-4">
+                                        <label for="password">Password:</label>
+                                        <input id="password" type="password" wire:model="password"
+                                            class="form-control w-full border rounded">
+                                        @error('password')
+                                            <span class="text-danger">{{ $message }}</span>
+                                        @enderror
+                                    </div>
+                                @endif
+
                                 <!-- Buttons -->
                                 <div class="modal-footer">
                                     <div class="flex gap-2 mt-4">

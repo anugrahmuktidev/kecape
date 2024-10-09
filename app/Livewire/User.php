@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Hash;
 
 class User extends Component
 {
-    public $id, $name, $email, $no_hp, $password, $selected_id;
+    public  $name, $email, $no_hp, $password, $selected_id;
     public $isOpen = false; // Variabel untuk kontrol modal
 
     protected $rules = [
@@ -30,46 +30,58 @@ class User extends Component
 
     public function create()
     {
+
         $this->resetInputFields();
         $this->isOpen = true; // Membuka modal
     }
 
     public function store()
-    {
-        $validatedData = $this->validate([
-            'name' => 'required|string',
-            'email' => 'required|email',
-            'no_hp' => 'required',
-        ]);
+{
+    \Log::info('Store method called.', ['data' => ['name' => $this->name, 'email' => $this->email, 'no_hp' => $this->no_hp]]);
 
-        if ($this->selected_id) {
-            // Update existing user, don't validate password
-            $user = UserModel::findOrFail($this->selected_id);
-            $user->update([
-                'name' => $validatedData['name'],
-                'email' => $validatedData['email'],
-                'no_hp' => $validatedData['no_hp'],
-            ]);
-        } else {
-            // Create new user, validate and hash password
-            $validatedData['password'] = $this->validate(['password' => 'required'])['password'];
-            $user = UserModel::create([
-                'name' => $validatedData['name'],
-                'email' => $validatedData['email'],
-                'no_hp' => $validatedData['no_hp'],
-                'password' => Hash::make($validatedData['password']),
-                'role' => 'admin',
-                'is_first_login' => false,
-            ]);
-        }
+    // Define the base validation rules
+    $rules = [
+        'name' => 'required|string',
+        'email' => 'required|email',
+        'no_hp' => 'required',
+    ];
 
-        // Flash message setelah operasi
-        session()->flash('message', $this->selected_id ? 'User  updated successfully.' : 'User  created successfully.');
-
-        $this->closeModal(); // Menutup modal setelah operasi
-        $this->resetInputFields();
-        $this->render(); // Refresh data setelah operasi
+    // Add password validation only if creating a new user
+    if (!$this->selected_id) {
+        $rules['password'] = 'required|string|min:6'; // Assuming you want at least 6 characters
     }
+
+    // Validate the input based on the defined rules
+    $validatedData = $this->validate($rules);
+
+    if ($this->selected_id) {
+        // Update existing user
+        $user = UserModel::findOrFail($this->selected_id);
+        $user->update([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'no_hp' => $validatedData['no_hp'],
+        ]);
+    } else {
+        // Create new user
+        UserModel::create([
+            'name' => $validatedData['name'],
+            'email' => $validatedData['email'],
+            'no_hp' => $validatedData['no_hp'],
+            'password' => Hash::make($validatedData['password']), // Hash password here
+            'role' => 'admin',
+            'is_first_login' => false,
+        ]);
+    }
+
+    // Flash message after operation
+    session()->flash('message', $this->selected_id ? 'User updated successfully.' : 'User created successfully.');
+
+    $this->closeModal(); // Close modal after operation
+    $this->resetInputFields(); // Reset input fields
+}
+
+
 
     public function edit($id)
     {
