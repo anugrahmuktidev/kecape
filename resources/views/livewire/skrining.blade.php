@@ -97,7 +97,7 @@
                                     <td>{{ $selectedUser->alamat }}</td>
                                 </tr>
                                 <tr>
-                                    <th>RT</th>
+                                    <th>Nomor Rumah</th>
                                     <td>{{ $selectedUser->no_rumah }}</td>
                                 </tr>
                                 <tr>
