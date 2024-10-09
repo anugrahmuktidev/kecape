@@ -46,6 +46,11 @@
                     </button>
                     <div class="dropdown-menu dropdown-menu-end">
                         <!-- item-->
+                        <x-dropdown-link data-bs-toggle="modal" data-bs-target="#changePasswordModal"
+                            style="cursor: pointer;">
+                            {{ __('Change Password') }}
+                        </x-dropdown-link>
+                        <div class="mt-3"></div>
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <x-dropdown-link :href="route('logout')"
@@ -60,3 +65,72 @@
         </div>
     </div>
 </header>
+<!-- Modal -->
+
+
+<div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="changePasswordModalLabel">{{ __('Change Password') }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div id="password-update-message" class="alert d-none"></div>
+                <form id="update-password-form" method="POST" action="{{ route('password.update') }}">
+                    @csrf
+                    @method('PUT')
+                    <div class="form-group">
+                        <label for="current_password">{{ __('Current Password') }}</label>
+                        <input type="password" id="current_password" class="form-control" name="current_password"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">{{ __('New Password') }}</label>
+                        <input type="password" id="password" class="form-control" name="password" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="password_confirmation">{{ __('Confirm New Password') }}</label>
+                        <input type="password" id="password_confirmation" class="form-control"
+                            name="password_confirmation" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary mt-3">{{ __('Update Password') }}</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#changePasswordModal').on('shown.bs.modal', function() {
+        $('#update-password-form').submit(function(event) {
+            event.preventDefault();
+            var form = $(this);
+            var url = form.attr('action');
+            var data = form.serialize();
+
+            $.ajax({
+                type: 'POST',
+                url: url,
+                data: data + '&_method=PUT',
+                success: function(data) {
+                    $('#password-update-message').removeClass('d-none alert-danger')
+                        .addClass('alert-success').text(data.message);
+                    setTimeout(function() {
+                        window.location.href =
+                            "/dashboard"; // Arahkan ke halaman dashboard
+                    }, 2000); // Tunggu 2 detik sebelum diarahkan
+                },
+                error: function(xhr, status, error) {
+                    var errorMessage = xhr.responseJSON?.error || "An error occurred";
+                    $('#password-update-message').removeClass('d-none alert-success')
+                        .addClass('alert-danger').text(errorMessage);
+                }
+            });
+
+
+
+        });
+    });
+</script>

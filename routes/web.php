@@ -11,6 +11,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PretestController;
 use App\Http\Controllers\PosttestController;
 use App\Http\Controllers\SkriningController;
+use App\Http\Controllers\Auth\PasswordController;
 
 
 /*
@@ -70,6 +71,9 @@ Route::get('/pretest', function () {
 Route::get('/posttest', function () {
     return view('admin.posttest.data-posttest');
 })->middleware(['auth', 'admin'])->name('admin.data.posttest');
+
+
+Route::post('/password/update', [PasswordController::class, 'update'])->name('password.update');
 
 Route::get('/home', function () {
     return view('user.home');
