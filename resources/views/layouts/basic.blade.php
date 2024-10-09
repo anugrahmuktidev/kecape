@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Kecape TB: Kenali, Catat, dan Periksa Tuberculosis</title>
+    <title>Kecapi TB: Kenali, Catat, dan Periksa Tuberculosis</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -180,7 +180,7 @@
 
 
                             <div class="my-3">
-                                <h1 class="fw-bold-text text-white mt-4">Aplikasi Kecape TB</h1>
+                                <h1 class="fw-bold-text text-white mt-4">Aplikasi Kecapi TB</h1>
                                 <p class="fs-15 fw-medium text-white">V 2.0 2024</p>
                             </div>
                         </div>

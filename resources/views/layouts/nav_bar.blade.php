@@ -7,7 +7,7 @@
                 <img src="{{ asset('assets/img/logo-unja.png') }}" alt="" height="22">
             </span>
             <span class="logo-lg text-center p-3">
-                <h3 class="text-white">Kecape TB <span><img src="{{ asset('assets/img/logo-unja.png') }}" alt=""
+                <h3 class="text-white">Kecapi TB <span><img src="{{ asset('assets/img/logo-unja.png') }}" alt=""
                             height="35"></span>
                 </h3>
 
@@ -20,7 +20,7 @@
 
             </span>
             <span class="logo-lg text-center p-3">
-                <h3 class="text-white">Kecape TB <span><img src="{{ asset('assets/img/logo-unja.png') }}" alt=""
+                <h3 class="text-white">Kecapi TB <span><img src="{{ asset('assets/img/logo-unja.png') }}" alt=""
                             height="35"></span>
                 </h3>
 

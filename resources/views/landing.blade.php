@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Kecape TB: Kenali, Catat, dan Periksa Tuberculosis</title>
+    <title>Kecapi TB: Kenali, Catat, dan Periksa Tuberculosis</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="Themesbrand" name="author" />
@@ -142,7 +142,7 @@
 
 
                                 <div class="my-3">
-                                    <h1 class="fw-bold-text text-white mt-4">Aplikasi Kecape TB</h1>
+                                    <h1 class="fw-bold-text text-white mt-4">Aplikasi Kecapi TB</h1>
                                     <p class="fs-15 fw-medium text-white">V 2.0 2024</p>
                                 </div>
                             </div>
@@ -160,9 +160,9 @@
                                     </div>
                                     <div class="ribbon-content mt-5 text-muted text-center">
                                         <p class="mb-1 fs-4">Dr. Ummi Kalsum, SKM., MKM</p>
-                                        <p class="mb-1 fs-4">Dr. Abbasiah</p>
+                                        <p class="mb-1 fs-4">Dr. Abbasiah, SKM., M.Kep</p>
                                         <p class="mb-1 fs-4">Prof. Drs. Damris M, M.Sc., Ph.D.</p>
-                                        <p class="mb-1 fs-4">Dr. Nizlel Huda</p>
+                                        <p class="mb-1 fs-4">Dr. Dra. Nizlel Huda, M.Kes.</p>
                                     </div>
                                 </div>
                             </div>
@@ -173,8 +173,13 @@
                             @if (Route::has('login'))
                                 <div class="text-center w-100">
                                     @auth
-                                        <a href="{{ url('/home') }}"
-                                            class="btn btn-warning btn-lg w-100 fs-4 mb-4">Home</a>
+                                        @if (Auth::user()->isAdmin())
+                                            <a href="{{ route('admin.dashboard') }}"
+                                                class="btn btn-warning btn-lg w-100 fs-4 mb-4">Dashboard Admin</a>
+                                        @else
+                                            <a href="{{ url('/home') }}"
+                                                class="btn btn-warning btn-lg w-100 fs-4 mb-4">Home</a>
+                                        @endif
                                     @else
                                         <a href="{{ route('login') }}"
                                             class="btn btn-warning btn-lg w-100 fs-4 mb-3">Masuk</a>

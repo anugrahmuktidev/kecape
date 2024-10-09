@@ -97,8 +97,12 @@
                                     <td>{{ $selectedUser->alamat }}</td>
                                 </tr>
                                 <tr>
-                                    <th>RT/RW</th>
-                                    <td>{{ $selectedUser->rt }}/{{ $selectedUser->rw }}</td>
+                                    <th>RT</th>
+                                    <td>{{ $selectedUser->no_rumah }}</td>
+                                </tr>
+                                <tr>
+                                    <th>RT</th>
+                                    <td>{{ $selectedUser->rt }}</td>
                                 </tr>
                                 <tr>
                                     <th>Kelurahan</th>

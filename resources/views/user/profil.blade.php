@@ -65,9 +65,15 @@
                                     <td class="text-muted">{{ ucwords(Auth::user()->alamat) }}</td>
                                 </tr>
                                 <tr>
-                                    <th class="ps-0" style="text-align: left;">RT/RW</th>
+                                    <th class="ps-0" style="text-align: left;">No Rumah</th>
                                     <td>:</td>
-                                    <td class="text-muted">{{ ucwords(Auth::user()->rt) }}/{{ ucwords(Auth::user()->rw) }}
+                                    <td class="text-muted">{{ ucwords(Auth::user()->no_rumah) }}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th class="ps-0" style="text-align: left;">RT</th>
+                                    <td>:</td>
+                                    <td class="text-muted">{{ ucwords(Auth::user()->rt) }}
                                     </td>
                                 </tr>
                                 <tr>

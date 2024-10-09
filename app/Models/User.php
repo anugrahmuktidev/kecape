@@ -77,4 +77,10 @@ class User extends Authenticatable
     {
         return self::where('no_hp', $no_hp)->first();
     }
+
+    // In your User model
+    public function isAdmin()
+    {
+        return $this->role === 'admin'; // or any other condition to determine admin status
+    }
 }
