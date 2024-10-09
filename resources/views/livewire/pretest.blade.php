@@ -3,16 +3,16 @@
     <h2 class="mt-4">Data Pretest Pengguna</h2>
     <button wire:click="exportPretest" class="btn btn-success"><i class="ri-file-excel-2-line" style="font-size: 20px"></i>
         Export Pretest</button>
-    @if (!empty($pretestResults))
-        <table class="table table-striped">
-            <thead class="table-light">
-                <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Nama Pengguna</th>
-                    <th scope="col">Jawaban Benar</th>
-                </tr>
-            </thead>
-            <tbody>
+    <table class="table table-striped">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Nama Pengguna</th>
+                <th scope="col">Jawaban Benar</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (!empty($pretestResults))
                 @foreach ($pretestResults as $index => $result)
                     <tr>
                         <td>{{ $index + 1 }}</td>
@@ -20,13 +20,13 @@
                         <td>{{ $result['totalBenar'] }}</td>
                     </tr>
                 @endforeach
-            </tbody>
-        </table>
-    @else
-        <tr>
-            <td>Tidak ada data pretest yang tersedia.</td>
-        </tr>
-    @endif
+            @else
+                <tr>
+                    <td colspan="3" class="text-center text-muted">Tidak ada data pretest yang tersedia.</td>
+                </tr>
+            @endif
+        </tbody>
+    </table>
     @if ($showModal)
         <div class="modal fade show" style="display: block;" aria-modal="true">
             <div class="modal-dialog modal-dialog-scrollable">

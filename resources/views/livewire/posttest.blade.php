@@ -3,17 +3,17 @@
     <h2 class="mt-4">Data Post Test Pengguna</h2>
     <button wire:click="exportPosttest" class="btn btn-success"><i class="ri-file-excel-2-line" style="font-size: 20px"></i>
         Export Post Test</button>
-    @if (!empty($posttestResult))
-        <table class="table table-striped">
-            <thead class="table-light">
-                <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Nama Pengguna</th>
-                    <th scope="col">Jawaban Benar</th>
+    <table class="table table-striped">
+        <thead class="table-light">
+            <tr>
+                <th scope="col">No</th>
+                <th scope="col">Nama Pengguna</th>
+                <th scope="col">Jawaban Benar</th>
 
-                </tr>
-            </thead>
-            <tbody>
+            </tr>
+        </thead>
+        <tbody>
+            @if (!empty($posttestResult))
                 @foreach ($posttestResult as $index => $result)
                     <tr>
                         <td>{{ $index + 1 }}</td>
@@ -21,13 +21,13 @@
                         <td>{{ $result['totalBenar'] }}</td>
                     </tr>
                 @endforeach
-            </tbody>
-        </table>
-    @else
-        <tr>
-            <td>Tidak ada data post-test yang tersedia.</td>
-        </tr>
-    @endif
+            @else
+                <tr>
+                    <td colspan="3" class="text-center text-muted">Tidak ada data post-test yang tersedia.</td>
+                </tr>
+            @endif
+        </tbody>
+    </table>
     @if ($showModal)
         <div class="modal fade show" style="display: block;" aria-modal="true">
             <div class="modal-dialog modal-dialog-scrollable">
