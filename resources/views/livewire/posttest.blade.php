@@ -24,7 +24,9 @@
             </tbody>
         </table>
     @else
-        <p>Tidak ada data pretest yang tersedia.</p>
+        <tr>
+            <td>Tidak ada data post-test yang tersedia.</td>
+        </tr>
     @endif
     @if ($showModal)
         <div class="modal fade show" style="display: block;" aria-modal="true">

@@ -17,28 +17,35 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($riwayatSkrining as $index => $riwayat)
+            @if ($riwayatSkrining->isEmpty())
                 <tr>
-                    <td>{{ $index + 1 }}</td>
-                    <td>{{ $riwayat->user->name }}</td>
-                    <td> {{ \Carbon\Carbon::parse($riwayat->tanggal)->format('d-m-Y') }} <br>
-                        <small>Jam: {{ \Carbon\Carbon::parse($riwayat->tanggal)->format('H:i:s') }}</small>
-                    </td>
-                    <td>
-                        @if ($riwayat->status_risiko === 'Rendah')
-                            <span class="badge bg-success">Risiko Rendah</span>
-                        @elseif($riwayat->status_risiko === 'Sedang')
-                            <span class="badge bg-warning">Risiko Sedang</span>
-                        @elseif($riwayat->status_risiko === 'Tinggi')
-                            <span class="badge bg-danger">Risiko Tinggi</span>
-                        @endif
-                    </td>
-                    <td>
-                        <button wire:click="viewUserBiodata({{ $riwayat->user->id }})" class="btn btn-info">Lihat
-                            Biodata</button>
-                    </td>
+                    <td colspan="4" class="text-center text-muted">Tidak ada data skrining.</td>
                 </tr>
-            @endforeach
+            @else
+                @foreach ($riwayatSkrining as $index => $riwayat)
+                    <tr>
+                        <td>{{ $index + 1 }}</td>
+                        <td>{{ $riwayat->user->name }}</td>
+                        <td> {{ \Carbon\Carbon::parse($riwayat->tanggal)->format('d-m-Y') }} <br>
+                            <small>Jam: {{ \Carbon\Carbon::parse($riwayat->tanggal)->format('H:i:s') }}</small>
+                        </td>
+                        <td>
+                            @if ($riwayat->status_risiko === 'Rendah')
+                                <span class="badge bg-success">Risiko Rendah</span>
+                            @elseif($riwayat->status_risiko === 'Sedang')
+                                <span class="badge bg-warning">Risiko Sedang</span>
+                            @elseif($riwayat->status_risiko === 'Tinggi')
+                                <span class="badge bg-danger">Risiko Tinggi</span>
+                            @endif
+                        </td>
+                        <td>
+                            <button wire:click="viewUserBiodata({{ $riwayat->user->id }})" class="btn btn-info">Lihat
+                                Biodata</button>
+                        </td>
+                    </tr>
+                @endforeach
+
+            @endif
         </tbody>
     </table>
     @if ($showModal)

@@ -10,7 +10,6 @@
                     <th scope="col">No</th>
                     <th scope="col">Nama Pengguna</th>
                     <th scope="col">Jawaban Benar</th>
-
                 </tr>
             </thead>
             <tbody>
@@ -24,7 +23,9 @@
             </tbody>
         </table>
     @else
-        <p>Tidak ada data pretest yang tersedia.</p>
+        <tr>
+            <td>Tidak ada data pretest yang tersedia.</td>
+        </tr>
     @endif
     @if ($showModal)
         <div class="modal fade show" style="display: block;" aria-modal="true">
