@@ -28,7 +28,6 @@ class SkriningExport implements FromCollection, WithHeadings
                 }
 
                 return [
-                    'id' => $riwayat->id,
                     'nama_user' => $riwayat->user->name,
                     'no_hp' => $riwayat->user->no_hp,
                     'tanggal_lahir' => $riwayat->user->tanggal_lahir,
@@ -67,7 +66,6 @@ class SkriningExport implements FromCollection, WithHeadings
     public function headings(): array
     {
         return [
-            'ID',
             'Nama User',
             'No HP',
             'Tinggi Badan',

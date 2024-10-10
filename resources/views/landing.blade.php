@@ -138,9 +138,6 @@
                                     </div>
                                 </div>
 
-
-
-
                                 <div class="my-3">
                                     <h1 class="fw-bold-text text-white mt-4">Aplikasi Kecapi TB</h1>
                                     <p class="fs-15 fw-medium text-white">V 2.0 2024</p>
