@@ -186,7 +186,7 @@
                                             class="btn btn-warning btn-lg w-100 fs-4 mb-3">Masuk</a>
 
                                     @endauth
-                                    <a href="{{ asset('petunjuk_kecapi.pdf') }}" target="_blank"
+                                    <a href="{{ asset('petunjuk-penggunaan-kecapi.pdf') }}" target="_blank"
                                         class="btn btn-primary btn-lg w-100 fs-4">Petunjuk Penggunaan</a>
                                 </div>
                             @endif
