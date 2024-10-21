@@ -156,13 +156,16 @@
                                         <i class="ri-account-pin-circle-line"></i> Pengembang :
                                     </div>
                                     <div class="ribbon-content mt-5 fw-text-bold text-center">
-                                        <p class="fs-4">Dr. Ummi Kalsum, SKM., MKM</p>
-                                        <p class="fs-4">Dr. Abbasiah, SKM., M.Kep</p>
-                                        <p class="fs-4">Prof. Drs. Damris M, M.Sc., Ph.D.</p>
-                                        <p class="fs-4">Dr. Dra. Nizlel Huda, M.Kes.</p>
+                                        <ul class="list-inline fs-4">
+                                            <li class="list-inline-item">Dr. Ummi Kalsum, SKM., MKM</li>
+                                            <li class="list-inline-item">Dr. Abbasiah, SKM., M.Kep</li>
+                                            <li class="list-inline-item">Prof. Drs. Damris M, M.Sc., Ph.D.</li>
+                                            <li class="list-inline-item">Dr. Dra. Nizlel Huda, M.Kes.</li>
+                                        </ul>
                                     </div>
                                 </div>
                             </div>
+
                         </div>
 
                         <!-- Kolom Kanan -->
