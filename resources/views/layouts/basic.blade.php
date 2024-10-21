@@ -28,7 +28,7 @@
             background-position: center;
             height: 100vh;
             overflow: hidden;
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Arial Nero', sans-serif;
         }
 
         .fw-bold-text {

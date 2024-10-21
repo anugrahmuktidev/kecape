@@ -29,7 +29,7 @@
                 <div class="card-body">
                     <div class="ribbon ribbon-primary round-shape">Edukasi Tuberkulosis</div>
 
-                    <div class="ribbon-content mt-4 text-muted">
+                    <div class="ribbon-content mt-4">
                         <p><strong>Tuberkulosis (TB)</strong> adalah penyakit menular yang disebabkan oleh bakteri
                             <em>Mycobacterium tuberculosis</em>.
                         </p>
@@ -59,16 +59,24 @@
 
                     </div>
 
-                    <p class="mt-4" style="color: orange">
-                        Anda juga dapat mendownload <strong class="fw-text-bold">Leaflet Edukasi Tuberkulosis</strong>,
-                        sebuah panduan rinci
-                        yang dapat dibaca kapan saja dan digunakan untuk mempelajari lebih lanjut tentang pencegahan dan
-                        penanganan TB. Leaflet ini memberikan informasi lengkap mengenai gejala, cara penularan, dan
-                        bagaimana cara melindungi diri serta keluarga dari penyakit ini.
+                    @if ($kembali)
+                        <p class="mt-4" style="color: orange">
+                            Download <strong class="fw-text-bold">Leaflet Edukasi Tuberkulosis</strong>, panduan singkat
+                            tentang pencegahan dan penanganan TB. Informasi lengkap mengenai gejala, penularan, dan
+                            perlindungan
+                            dari penyakit ini.
+                        </p>
+                    @endif
+                    <p id="leafInfo" class="mt-4 d-none" style="color: orange">
+                        Download <strong class="fw-text-bold">Leaflet Edukasi Tuberkulosis</strong>, panduan singkat
+                        tentang pencegahan dan penanganan TB. Informasi lengkap mengenai gejala, penularan, dan perlindungan
+                        dari penyakit ini.
                     </p>
-                    <!-- Tombol Download Pamflet (Disembunyikan Awalnya) -->
-
-
+                    @if (!$kembali)
+                        <p id="textInfo" class="mt-4" style="color: red">*Tombol akan muncul saat video selesai
+                            diputar
+                        </p>
+                    @endif
 
 
                     <!-- Tombol Selanjutnya -->
@@ -88,7 +96,7 @@
                                 <i class="ri-book-read-line align-middle"></i> Unduh Leaflet
                             </a>
                             <a href="{{ route('posttest.disclaimer') }}" id="nextButton"
-                                class="btn btn-success material-shadow-none disabled" aria-disabled="true">Selanjutnya</a>
+                                class="btn btn-success material-shadow-none d-none" aria-hidden="true">Selanjutnya</a>
                         @endif
                     </div>
 
@@ -118,7 +126,11 @@
 
         function onPlayerStateChange(event) {
             if (event.data == YT.PlayerState.ENDED) {
+                var message = document.getElementById('textInfo');
+                var messageB = document.getElementById('leafInfo');
                 var downloadButton = document.getElementById('downloadPamfletButton');
+                messageB.classList.remove('d-none')
+                message.style.display = 'none';
                 downloadButton.classList.remove('d-none'); // Tampilkan tombol download pamflet
             }
         }
@@ -126,8 +138,8 @@
         // Event listener untuk download pamflet
         document.getElementById('downloadPamfletButton').addEventListener('click', function() {
             var nextButton = document.getElementById('nextButton');
-            nextButton.classList.remove('disabled');
-            nextButton.removeAttribute('aria-disabled');
+            nextButton.classList.remove('d-none');
+            nextButton.removeAttribute('aria-hidden');
         });
     </script>
 @endsection

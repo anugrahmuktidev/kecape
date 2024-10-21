@@ -139,7 +139,7 @@
                                 </div>
 
                                 <div class="my-3">
-                                    <h1 class="fw-bold-text text-white mt-4">Aplikasi Kecapi TB</h1>
+                                    <h1 class="fw-bold-text text-white mt-3">Aplikasi Kecapi TB</h1>
                                     <p class="fs-15 fw-medium text-white">V 2.0 2024</p>
                                 </div>
                             </div>
@@ -149,17 +149,17 @@
 
                     <div class="row">
                         <!-- Kolom Kiri -->
-                        <div class="col-12 col-md-6 d-flex align-items-center mb-4 mb-md-0">
+                        <div class="col-12 col-md-6 d-flex align-items-center mb-1 mb-md-0">
                             <div class="card ribbon-box border shadow-none mb-lg-0 w-100">
                                 <div class="card-body">
                                     <div class="ribbon ribbon-success round-shape fs-4 fw-medium">
                                         <i class="ri-account-pin-circle-line"></i> Pengembang :
                                     </div>
-                                    <div class="ribbon-content mt-5 text-muted text-center">
-                                        <p class="mb-1 fs-4">Dr. Ummi Kalsum, SKM., MKM</p>
-                                        <p class="mb-1 fs-4">Dr. Abbasiah, SKM., M.Kep</p>
-                                        <p class="mb-1 fs-4">Prof. Drs. Damris M, M.Sc., Ph.D.</p>
-                                        <p class="mb-1 fs-4">Dr. Dra. Nizlel Huda, M.Kes.</p>
+                                    <div class="ribbon-content mt-5 fw-text-bold text-center">
+                                        <p class="fs-4">Dr. Ummi Kalsum, SKM., MKM</p>
+                                        <p class="fs-4">Dr. Abbasiah, SKM., M.Kep</p>
+                                        <p class="fs-4">Prof. Drs. Damris M, M.Sc., Ph.D.</p>
+                                        <p class="fs-4">Dr. Dra. Nizlel Huda, M.Kes.</p>
                                     </div>
                                 </div>
                             </div>

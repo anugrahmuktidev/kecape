@@ -49,10 +49,12 @@
                 <!-- Kartu Risiko Rendah -->
                 <div class="card border card-border-success">
                     <div class="card-header bg-success text-white">
-                        <h6 class="card-title mb-0 text-center">HASIL SKRINING TUBERCULOSIS</h6>
+                        <h6 class="card-title mb-0 text-center text-white">HASIL SKRINING TUBERCULOSIS</h6>
                     </div>
                     <div class="card-body">
-                        <span class="badge bg-success align-middle fs-6 my-3 d-block text-center text-wrap">ANDA TERMASUK
+                        <span class="badge bg-success align-middle fs-6 my-3 d-block text-center text-wrap"
+                            style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width: 100%;">ANDA
+                            TERMASUK
                             KATEGORI BERESIKO RENDAH TERPAPAR TB</span>
                         <p class="card-text">Rencana Tindak Lanjut :</p>
                         <ol class="ms-3">
@@ -76,10 +78,12 @@
                 <!-- Kartu Risiko Sedang -->
                 <div class="card border card-border-warning">
                     <div class="card-header bg-warning text-white">
-                        <h6 class="card-title mb-0 text-center">HASIL SKRINING TUBERCULOSIS</h6>
+                        <h6 class="card-title mb-0 text-center text-white">HASIL SKRINING TUBERCULOSIS</h6>
                     </div>
                     <div class="card-body">
-                        <span class="badge bg-warning align-middle fs-6 my-3 d-block text-center">ANDA TERMASUK KATEGORI
+                        <span class="badge bg-warning align-middle fs-6 my-3 d-block text-center text-wrap"
+                            style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width: 100%;">ANDA
+                            TERMASUK KATEGORI
                             BERESIKO SEDANG TERPAPAR TB</span>
                         <p class="card-text">Rencana Tindak Lanjut :</p>
                         <p>Silahkan segera kunjungi fasilitas pelayanan kesehatan terdekat untuk mendapatkan:</p>
@@ -108,10 +112,12 @@
                 <!-- Kartu Risiko Tinggi -->
                 <div class="card border card-border-danger">
                     <div class="card-header bg-danger text-white">
-                        <h6 class="card-title mb-0 text-center">HASIL SKRINING TUBERCULOSIS</h6>
+                        <h6 class="card-title mb-0 text-center text-white">HASIL SKRINING TUBERCULOSIS</h6>
                     </div>
                     <div class="card-body">
-                        <span class="badge bg-danger align-middle fs-6 my-3 d-block text-center">ANDA TERMASUK KATEGORI
+                        <span class="badge bg-danger align-middle fs-6 my-3 d-block text-center text-wrap"
+                            style="overflow: hidden; white-space: nowrap; text-overflow: ellipsis; max-width: 100%;">ANDA
+                            TERMASUK KATEGORI
                             BERESIKO TINGGI TERPAPAR TB</span>
                         <p class="card-text">Rencana Tindak Lanjut :</p>
                         <p>Silahkan segera kunjungi fasilitas pelayanan kesehatan terdekat untuk mendapatkan:</p>
